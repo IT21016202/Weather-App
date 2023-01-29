@@ -1,0 +1,139 @@
+.topic{
+    position:absolute;
+    top: 5%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.logo{
+    position: relative;
+}
+
+.topic-text{
+    display: inline;
+    margin-left: 25px;  
+    color: white;
+}
+
+.card-main-view{
+    position:absolute;
+    top: 30%; 
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.card-each-view{
+    height: auto;
+    background-color: #383b47 ;
+    color: white;
+    border-radius: 20px;
+}
+
+.card-img-view{
+    background-color: #388ee7;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-top-middle-view{
+    position: absolute;
+    padding: 25px;
+    text-align: center;
+    width: auto;
+    padding-left: 42%;
+}
+
+.card-top-middle-view h2{
+    font-size: 25px;
+}
+
+.card-top-middle-view p{
+    font-size: 15px;
+}
+
+.card-top-right-view{
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 25px;
+    margin-left: 50%;
+    top: 25%;
+    text-align: center;
+    border-left-style: solid; 
+    border-width: 2px;
+}
+
+.card-top-right-view h1{
+    font-size: 50px;
+}
+
+.card-top-right-view h5{
+    font-size: 15px;
+}
+
+.card-top-left-view{
+    position: absolute;
+    padding: 20px;
+    top: 25%; 
+    padding-left: 30%;  
+}
+
+.card-body-middle-view{
+    position: absolute;
+    top: 61%;
+    left: 42%;
+    font-weight: bold;
+}
+
+.card-body-right-view{
+   position: absolute;
+   top: 62%;
+   left: 72%;
+   font-weight: bold;
+}
+
+.card-body-left-view{
+    top: 62%;
+    margin-left: 15%;
+    font-weight: bold;
+}
+
+.card-body-1{
+    padding: 2%;
+}
+
+footer h3{
+    text-align: center;
+    color: white;
+    padding: 30px;
+    background-color: #484a54; 
+}
+
+
+@media screen and (max-width: 1000px){
+    .card-main-view{
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+
+}
+
+@media screen and (max-width: 700px){
+    .card-main-view{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .card-main-view{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}

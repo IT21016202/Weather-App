@@ -100,6 +100,33 @@
     font-size: 50px;
 }
 
+.card-body-middle{
+    position: absolute;
+    top: 60%;
+    left: 38%;
+    font-weight: bold;
+}
+
+.card-body-right{
+   position: absolute;
+   top: 60%;
+   left: 72%;
+   font-weight: bold;
+}
+
+.card-body-left{
+    top: 62%;
+    margin-left: 8%;
+    font-weight: bold;
+}
+
+footer h3{
+    text-align: center;
+    color: white;
+    padding: 30px;
+    background-color: #484a54; 
+}
+
 
 
 @media screen and (max-width: 1400px){
@@ -112,6 +139,52 @@
     .add-city{
         padding-left: 25%;
         padding-right: 25%;
+    }
+
+    .card-body-left{
+        margin-left: 5%;
+    }
+
+    .card-body-middle{
+        left: 33%;
+    }
+
+    .card-body-right{
+        left: 60%;
+    }
+
+    .card-top-right h1{
+        font-size: 30px ;
+    }
+
+    .card-top-right h5{
+        font-size: 15px ;
+    }
+
+    .card-top-right{
+        margin-left: 50%;
+    }
+
+    .card-top-left h2{
+        font-size: 30px;
+    }
+
+    .card-top-left h4{
+        font-size: 20px;
+    }
+
+    .card-top-left p{
+        font-size: 15px;
+    }
+
+    .card-body-left{
+        font-size: smaller;
+    }
+    .card-body-middle{
+        font-size: smaller;
+    }
+    .card-body-right{
+        font-size: smaller;
     }
 }
 
