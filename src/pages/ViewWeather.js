@@ -1,29 +1,44 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
 import DashBack from '../images/DashBack.jpg';
 import Logo from '../images/Logo.png';
 import CloudBack from '../images/CloudBack.png';
 import { useParams } from 'react-router-dom';
 import '../css/ViewWeather.css';
+import Data from '../Data';
 
 export const ViewWeather = () => {
-  //fd0c2a91be242f11c6b26c079e1ced9c
-  //74d7a1fb735f219d82b2ae845d9c886d
-  const apiKey = "3e9951ef252716acb6b0a0366f040715";
+ 
   const {cityID} = useParams();
   const [weather, setWeather] = useState([]);
+
+  const storedWeather = JSON.parse(localStorage.getItem("weather"));
+  const expireTime = localStorage.getItem("weather_expire");
+  const currentTime = new Date().getTime();
   
   useEffect(()=>{
-    function getData(){
-      axios.get(`http://api.openweathermap.org/data/2.5/group?id=${cityID}&units=metric&appid=${apiKey}`)
-      .then((res)=>{
-        setWeather(res.data.list);
-      }).catch((err)=>{
-        console.log(err);
-      })
+    function getOneData(){
+      if(storedWeather && currentTime < expireTime){
+        for(var i=0; i<8; i++){
+          if(storedWeather[i].id == cityID){
+            let arr = [storedWeather[i]];
+            setWeather(arr);
+            console.log(arr);
+          }
+        }
+      }else{
+        Data();
+        storedWeather = JSON.parse(localStorage.getItem("weather"));
+        for(var i=0; i<8; i++){
+          if(storedWeather[i].id == cityID){
+            let arr = [storedWeather[i]];
+            setWeather(arr);
+            console.log(arr);
+          }
+        }
+      }
     }
-    getData();
-  })
+    getOneData();
+  },[])
 
   return (
     <div>

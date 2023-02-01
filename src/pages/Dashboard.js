@@ -1,34 +1,35 @@
 import {React, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import DashBack from '../images/DashBack.jpg';
 import Logo from '../images/Logo.png';
 import CloudBack from '../images/CloudBack.png';
 import '../css/Dashboard.css';
+import Data from '../Data';
 
-export const Dashboard = () => {
-    //fd0c2a91be242f11c6b26c079e1ced9c
-    //74d7a1fb735f219d82b2ae845d9c886d 
-    const apiKey = "3e9951ef252716acb6b0a0366f040715";
-    const cityCodes = [1248991,1850147,2644210,2988507,2147714,4930956,1796236,3143244];
+export const Dashboard = () => {  
+
     const [weather, setWeather] = useState([]);
-    const time = new Date().getTime();
-    
-      useEffect(()=>{
-        function getData(){
-            axios.get(`http://api.openweathermap.org/data/2.5/group?id=${cityCodes}&units=metric&appid=${apiKey}`)
-            .then((res)=>{              
-              setWeather(res.data.list);
-              localStorage.setItem("weather", JSON.stringify(res.data.list));
-              localStorage.setItem("weather_expire", time + 300000);
-            }).catch((err)=>{
-                console.log(err);
-                alert(err.response.data.message)
-            })
-        } 
-        getData();
-      })
-    
+    const storedWeather = JSON.parse(localStorage.getItem("weather"));
+    const expireTime = localStorage.getItem("weather_expire");
+    const currentTime = new Date().getTime();
+
+    useEffect(()=>{
+      function getData(){
+        if(storedWeather && currentTime < expireTime){
+          console.log("getting stored data");
+          setWeather(storedWeather);
+        } else {
+          console.log("Calling api from dashboard");
+          Data();
+          storedWeather = JSON.parse(localStorage.getItem("weather"));
+          setWeather(storedWeather);
+        }
+      }
+      getData();
+      
+    },[])
+
+  
   return (
     <div>  
         <img src={DashBack} style={{width: "100%"}}/>
