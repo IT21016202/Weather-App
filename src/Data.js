@@ -9,8 +9,6 @@ function Data(){
         cityArr.push(Number(cityData.CityCode));
     })}
 
-    console.log(cityArr);
-
     const time = new Date().getTime();
     const cityCodes = [1248991,1850147,2644210,2988507,2147714,4930956,1796236,3143244];
 

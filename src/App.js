@@ -1,14 +1,20 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import ViewWeather from './pages/ViewWeather';
+import AllCities from './components/AllCities';
+import Heading from './components/Heading';
+import OneCity from './components/OneCity';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Dashboard/>} /> 
-        <Route path="details/:cityID" element={<ViewWeather/>} />
-      </Routes>
+      <Dashboard/>
+      <Heading/>
+        <Routes>
+          <Route path="/" element={<AllCities/>} /> 
+          <Route path="details/:cityID" element={<OneCity/>} />
+        </Routes>
+      <Footer/>
     </BrowserRouter>  
   );
 }
