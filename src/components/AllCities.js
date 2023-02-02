@@ -1,7 +1,6 @@
 import {React, useState, useEffect} from 'react'
 import CloudBack from '../images/CloudBack.png';
 import { Link } from 'react-router-dom';
-import Data from '../Data';
 import AddCity from './AddCity';
 
 export const AllCities = () => {
@@ -15,11 +14,8 @@ export const AllCities = () => {
     useEffect(()=>{
         function getData(){
         if(storedWeather && currentTime < expireTime){
-            console.log("getting stored data");
             setWeather(storedWeather);
         } else {
-            console.log("Calling api from dashboard");
-            Data();
             storedWeather = JSON.parse(localStorage.getItem("weather"));
             setWeather(storedWeather);
           }

@@ -14,8 +14,6 @@ function Data(){
 
     axios.get(`http://api.openweathermap.org/data/2.5/group?id=${cityCodes}&units=metric&appid=${process.env.REACT_APP_API_KEY_1}`)
     .then((res)=>{
-        console.log("Calling api from GetData");
-        console.log(res);
         localStorage.setItem("weather", JSON.stringify(res.data.list));
         localStorage.setItem("weather_expire", time + 300000);
     }).catch((err)=>{
