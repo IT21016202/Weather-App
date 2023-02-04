@@ -28,10 +28,11 @@ export const AllCities = () => {
     <div>
     <AddCity/>
     <div className='card-main'>
-    {weather?.map((weatherData)=>(           
+    {weather?.map((weatherData)=>(   
+      <Link to={`/details/${weatherData.id}`}>        
       <div className="card card-each" key={weatherData.name}> 
-        <Link to={`/details/${weatherData.id}`}>
-        <img className="card-img-top card-img" src={CloudBack} alt="Card cap"/> </Link>
+        
+        <img className="card-img-top card-img" src={CloudBack} alt="Card cap"/> 
 
         <div className='card-top-left'>
           <h2>{weatherData.name}, {weatherData.sys.country}</h2>
@@ -59,6 +60,7 @@ export const AllCities = () => {
           </div> 
         </div>              
       </div>
+      </Link>
    ))}          
   </div> 
   </div>
